@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  upstreamIp: '192.168.49.2',
+  upstreamPort: '30724'
 };
 
 /*

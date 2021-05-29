@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-vertical">
+    <div class = "container col-md-6 col-xs-6">
+            <div class="panel panel-default">
+                    <div class="panel-head title">
+                      <h3>Login</h3>
+                    </div><br>
+                    <div class="panel-body">
+                        <div *ngIf="failureMsg">
+                            <span style="color:red">{{failureDes}}</span>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input formControlName="customerId" type="text" id="customerId" placeholder=" Customer Id ">
+                            </div>
+                            <span *ngIf="submitted && loginForm.get('customerId').errors?.required" style="color:red">
+                              {{customerIdReqDes}}
+                            </span>    
+                        </div>
+                        <div class="form-group">
+                          <div>
+                              <input formControlName="batchId" type="text" id="batchId" placeholder=" Batch Id ">
+                          </div>
+                          <div *ngIf="submitted && loginForm.get('batchId').errors?.required">
+                              <span style="color:red">{{batchIdReqDes}}</span>
+                          </div> 
+                      </div>
+                    </div>
+                    <div class="panel-footer logbtn">
+                        <button id="loginBtn" class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+            </div>
+    </div>  
+</form>  

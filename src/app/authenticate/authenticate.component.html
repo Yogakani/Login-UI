@@ -1,0 +1,36 @@
+<form [formGroup]="authenticateForm" (ngSubmit)="onAuthenticate()" class="form-vertical">
+    <div class = "container col-md-6 col-xs-6">
+            <div class="panel panel-default">
+                    <div class="panel-head title">
+                      <h3>Authenticate</h3>
+                    </div><br>
+                    <div class="form-group col-md-4">
+                    <select id="inputState" class="form-control" (change)="onAuthSelect($event.target.value)">
+                        <option selected>Choose Auth Type</option>
+                        <option value="Password">Password</option>
+                        <option value="QR Code">QR Code</option>
+                    </select>
+                    </div>
+                    <br>
+                    <div *ngIf="passwordTxtDisplay">
+                        <div class="form-group">
+                            <div>
+                                <input formControlName="password" type="password" id="password" placeholder=" Password ">
+                            </div> 
+                            <div *ngIf="submitted && authenticateForm.get('password').errors?.required">
+                                <span style="color:red">{{pwdReqDes}}</span>
+                            </div> 
+                        </div>
+                      <div class="panel-footer logbtn">
+                          <button id="authBtn" class="btn btn-primary" type="submit">Submit</button>
+                      </div>
+                    </div>
+                    <br>
+                    <div *ngIf="qrCodeDisplay">
+                        <div>
+                            <qr-code [value]="qrCode" [size]="200" [level]="L"></qr-code>
+                        </div>
+                    </div>
+            </div>
+    </div>
+</form>

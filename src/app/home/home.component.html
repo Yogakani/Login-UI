@@ -1,0 +1,22 @@
+<h2>Welcome {{customerId}}</h2>
+<br><br>
+<div *ngIf="status">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Principal</th>
+            <th scope="col">Engine</th>
+            <th scope="col">Drivers</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{res.name}}</td>
+            <td>{{res.principal}}</td>
+            <td>{{res.engine}}</td>
+            <td>{{res.drivers}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
